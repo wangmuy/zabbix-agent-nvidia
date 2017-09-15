@@ -28,6 +28,9 @@ Configuration -> Templates -> Import [nvidia_smi_template.xml](https://github.co
 3.2 Add host
 
 Configuration -> Hosts -> Create host, set
+
   "Host name" == $HOSTNAME==gpumonitoragent
+
   "IP address" == server ip
+
   "Port" == 50050
