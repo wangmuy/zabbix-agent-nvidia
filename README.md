@@ -16,7 +16,7 @@ docker run --name zabbix-web -e DB_SERVER_HOST=zabbix-db -e MYSQL_DATABASE=zabbi
 2. start agent:
 
 ```
-nvidia-docker run -d -p 50050:10050 -e HOSTNAME=gpumonitoragent -e ALLOW_HOST='1727.0.3,172.17.0.1' zabbix-agent-nvidia
+nvidia-docker run -d -p 50050:10050 -e HOSTNAME=gpumonitoragent -e ALLOW_HOST='127.0.0.1,172.17.0.1' zabbix-agent-nvidia
 ```
 
 3. Config via web:
@@ -27,6 +27,7 @@ Configuration -> Templates -> Import [nvidia_smi_template.xml](https://github.co
 
 3.2 Add host
 
-Configuration -> Hosts -> Create host, set "Host name", "IP address" and "Port"
-
-Make sure "Host name" is the same as agent docker run param HOSTNAME
+Configuration -> Hosts -> Create host, set
+  "Host name" == $HOSTNAME==gpumonitoragent
+  "IP address" == server ip
+  "Port" == 50050
